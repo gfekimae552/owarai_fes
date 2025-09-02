@@ -12,10 +12,38 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100..900&display=swap" rel="stylesheet">
+    <script defer src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
+
+<script defer>
+document.addEventListener('DOMContentLoaded', () => {
+  const canvas = document.getElementById('confettiCanvas');
+  if (!canvas) return; // 念のため安全対策
+
+  const myConfetti = confetti.create(canvas, { resize: true, useWorker: true });
+
+  // 発射ループ（ABOUTだけに描画される）
+  const timer = setInterval(() => {
+    myConfetti({
+      particleCount: 30,
+      startVelocity: 17.5,
+      spread: 360,
+      origin: { x: 0.5, y: 0.5 } // キャンバス中央
+    });
+  }, 150);
+});
+</script>
+
 </head>
 
 <body>
 
+    <div class="lp-about">
+        <h2>ABOUT</h2>
+        <p>森本お笑いフェスティバルの説明...</p>
+
+        <!-- このキャンバスだけに紙吹雪を描画 -->
+        <canvas id="confettiCanvas"></canvas>
+    </div>
 
 
 <!--　Start Nakagawa block -->
