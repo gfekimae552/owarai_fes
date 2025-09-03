@@ -9,10 +9,79 @@
 /* ===== OWNER: Sakashita ===== */
 /* [OWNER-Sakashita START] */
 
+.lp-keyvisual{
+  /* このブロック専用の変数（必要ならここだけ触ればOK） */
+  --kv-bg: #FFF100;             /* 画像の黄色に合わせる */
+  --kv-dot: #FFBA00;            /* ドット色（白） */
+  --kv-dot-spacing: 9px;       /* ドット間隔（画像に近い広め） */
+  --kv-dot-size: 9px;           /* ドット直径（見た目の大きさ） */
+
+  --kv-ray-color: #FFBA00; /* 放射線の色（白・半透明） */
+  --kv-fan-width: 28deg;        /* 放射線の太さ（画像寄せ） */
+  --kv-spin-sec: 60s;           /* 回転周期：ゆっくり1分/周 */
+
+  position: relative;
+  overflow: hidden;
+  height: 702px;                /* 既存指定を踏襲 */
+  isolation: isolate;           /* blendが外に漏れないように */
+}
+
+/* レイヤー1：画像どおりの“均一なドット”背景（ポルカドット） */
+.lp-keyvisual::before{
+  content:"";
+  position:absolute; inset:0;
+  z-index:1;
+  /* ベースの黄色 */
+  background-color: var(--kv-bg);
+
+  /* ドットは radial-gradient をタイル状に敷き詰める（同心円じゃない） */
+  background-image:
+    radial-gradient(circle, var(--kv-dot) 50%, transparent 51%);
+  background-size: var(--kv-dot-spacing) var(--kv-dot-spacing);
+}
+
+
+/* レイヤー2：放射状の線（単色ハイライト） */
+.lp-keyvisual::after{
+  content:"";
+  position:absolute;
+  inset:-12%;                   /* 端で欠けないよう外側へ少し広げる */
+  z-index:2;
+  background:
+    conic-gradient(
+      from 0deg,
+      var(--kv-ray-color) 0 var(--kv-fan-width),
+      transparent          var(--kv-fan-width) calc(var(--kv-fan-width)*2),
+      var(--kv-ray-color)  calc(var(--kv-fan-width)*2) calc(var(--kv-fan-width)*3),
+      transparent          calc(var(--kv-fan-width)*3) calc(var(--kv-fan-width)*4),
+      var(--kv-ray-color)  calc(var(--kv-fan-width)*4) calc(var(--kv-fan-width)*5),
+      transparent          calc(var(--kv-fan-width)*5) calc(var(--kv-fan-width)*6),
+      var(--kv-ray-color)  calc(var(--kv-fan-width)*6) calc(var(--kv-fan-width)*7),
+      transparent          calc(var(--kv-fan-width)*7) calc(var(--kv-fan-width)*8),
+      var(--kv-ray-color)  calc(var(--kv-fan-width)*8) calc(var(--kv-fan-width)*9),
+      transparent          calc(var(--kv-fan-width)*9) calc(var(--kv-fan-width)*10),
+      var(--kv-ray-color)  calc(var(--kv-fan-width)*10) calc(var(--kv-fan-width)*11),
+      transparent          calc(var(--kv-fan-width)*11) calc(var(--kv-fan-width)*12),
+      var(--kv-ray-color)  calc(var(--kv-fan-width)*12) calc(var(--kv-fan-width)*13),
+      transparent          calc(var(--kv-fan-width)*13) calc(var(--kv-fan-width)*14)
+    );
+  animation: kv-spin var(--kv-spin-sec) linear infinite;
+  
+}
+
+@keyframes kv-spin { to { transform: rotate(360deg); } }
+
+/* 動きを控えたいユーザー設定に配慮 */
+@media (prefers-reduced-motion: reduce){
+  .lp-keyvisual::after { animation-duration: 0s; }
+}
+
 .lp-about{
   position:relative;
   overflow: hidden;
-  height: 500px;
+  height: 1495px;
+  background-color: #FFF100;
+  z-index: -10;
 }
 
 #confettiCanvas{
@@ -21,7 +90,7 @@
   width:100%;
   height:100%;
   pointer-events:none;
-  z-index: -10;
+  z-index: -5;
 }
 
 /* [OWNER-Sakashita END] */
