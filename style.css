@@ -4,7 +4,9 @@
   --lp-space-1:.5rem;
   --lp-space-2:1rem;
 }
-
+.u-center{
+  text-align: center;
+}
 
 /* ===== OWNER: Sakashita ===== */
 /* [OWNER-Sakashita START] */
@@ -29,6 +31,25 @@
 
 /* ===== OWNER: Nakagawa ===== */
 /* [OWNER-Nakagawa START] */
+footer {
+  background-color: #00A4E9;
+}
+
+.lp-footer__icon--youtube{
+  width:64px;
+}
+
+.lp-footer__icon--instagram{
+  width:44px;
+}
+
+.lp-footer__icon--x{
+  width:39px;
+}
+
+.lp-footer__logo--company-logo{
+width:187px;
+}
 
 
 
