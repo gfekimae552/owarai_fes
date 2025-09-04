@@ -7,7 +7,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Taro Shuro's Portfolio</title>
+  <title></title>
   <link rel="stylesheet" href="style.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -24,18 +24,24 @@ document.addEventListener('DOMContentLoaded', () => {
   // 発射ループ（ABOUTだけに描画される）
   const timer = setInterval(() => {
     myConfetti({
-      particleCount: 30,
-      startVelocity: 17.5,
+      particleCount: 80,
+      startVelocity: 100,
       spread: 360,
-      origin: { x: 0.5, y: 0.5 } // キャンバス中央
+      origin: { x: 0.5, y: 0.5 }, // キャンバス中央
+      gravity: 0.8,
+      scalar:1.5
     });
-  }, 150);
+  }, 250);
 });
 </script>
 
 </head>
 
 <body>
+    <div class="lp-keyvisual">
+
+        
+    </div>
 
     <div class="lp-about">
         <h2>ABOUT</h2>
