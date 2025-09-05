@@ -1,4 +1,12 @@
 /* ===== TOKENS (:root) ===== */
+*{
+      box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: "Noto Sans JP";
+    letter-spacing: 0.05em;
+}
+
 :root{
   --lp-color-primary:#2563eb;
   --lp-space-1:.5rem;
@@ -19,7 +27,7 @@
   --kv-dot-size: 9px;           /* ドット直径（見た目の大きさ） */
 
   --kv-ray-color: #FFBA00; /* 放射線の色（白・半透明） */
-  --kv-fan-width: 28deg;        /* 放射線の太さ（画像寄せ） */
+  --kv-fan-width: 23deg;        /* 放射線の太さ（画像寄せ） */
   --kv-spin-sec: 60s;           /* 回転周期：ゆっくり1分/周 */
 
   position: relative;
@@ -47,7 +55,8 @@
 .lp-keyvisual::after{
   content:"";
   position:absolute;
-  inset:-12%;                   /* 端で欠けないよう外側へ少し広げる */
+  inset:-100%;                   /* 端で欠けないよう外側へ少し広げる */
+  border-radius: 50%;
   z-index:2;
   background:
     conic-gradient(
@@ -67,15 +76,21 @@
       var(--kv-ray-color)  calc(var(--kv-fan-width)*12) calc(var(--kv-fan-width)*13),
       transparent          calc(var(--kv-fan-width)*13) calc(var(--kv-fan-width)*14)
     );
-  animation: kv-spin var(--kv-spin-sec) linear infinite;
-  
+  animation:
+    kv-spin var(--kv-spin-sec) linear infinite,  /* 回転：60秒/周（そのまま） */
+    kv-pulse 12s ease-in-out infinite;           /* 脈動：12秒/往復 */
+
+    
 }
 
-@keyframes kv-spin { to { transform: rotate(360deg); } }
+@keyframes kv-spin {
+  to { transform: rotate(360deg); }
+}
 
-/* 動きを控えたいユーザー設定に配慮 */
-@media (prefers-reduced-motion: reduce){
-  .lp-keyvisual::after { animation-duration: 0s; }
+@keyframes kv-pulse {
+  0%   { inset:-12%; }
+  50%  { inset:-100%; }
+  100% { inset:-12%; }
 }
 
 .lp-about{
