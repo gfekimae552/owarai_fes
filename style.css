@@ -115,6 +115,14 @@
 
 /* ===== OWNER: Nakagawa ===== */
 /* [OWNER-Nakagawa START] */
+.lp-caution{
+  background-color: #FFF100;
+}
+
+.lp-sponsors{
+  background-color: #FFF100;
+}
+
 footer {
   background-color: #00A4E9;
 }
