@@ -119,14 +119,95 @@
   background-color: #FFF100;
 }
 
+/* sponsors */
+.lp-sponsors__title{
+  text-align: center;
+  font-weight: bold;
+}
+
+.lp-sponsors__logo{
+  width:80%;
+  margin:0 auto;
+  padding: 50px 0;
+  display:flex;
+  flex-wrap:wrap;
+  justify-content: space-between;
+  align-items: center;
+  row-gap:30px;
+}
+
 .lp-sponsors{
   background-color: #FFF100;
 }
 
+.lp-sponsors__logo--OKB{
+  width:254px;
+  margin:0 50px;
+}
+
+.lp-sponsors__logo--SEINO{
+  width:147px;
+}
+
+.lp-sponsors__logo--TOKIWA{
+  width:112px;
+  margin: 0 20px;
+}
+
+.lp-sponsors__logo--TSUCHIYA{
+  width:261px;
+  margin: 0 20px;
+}
+
+.lp-sponsors__logo--VALOR{
+  width:128px;
+}
+
+.lp-sponsors__logo--16FG{
+ width:167px; 
+}
+
+.lp-sponsors__logo--CHECKHOUSE{
+  width:129px;
+}
+
+.lp-sponsors__logo--DRUG-YUTAKA{
+  width:182px;
+}
+
+.lp-sponsors__logo--DSK_w_trans{
+  width:222px;
+  margin: 0 20px;
+}
+
+.lp-sponsors__logo--GIFU-AUTO-BODY{
+  width:201px;
+}
+
+.lp-sponsors__logo--GIFUSHIN{
+  width:182px;
+}
+
+.lp-sponsors__logo--HIMARAYA{
+  width:166px;
+}
+
+.lp-sponsors__logo--IBIDEN{
+  width:121px;
+}
+
+.lp-sponsors__logo--NIHON-MIZU-KIKO{
+  width:85px;
+}
+
+.lp-sponsors__logo--ROCKS{
+  width:171px;
+}
+
+/* footer */
 footer {
   background-color: #00A4E9;
 }
-
 
 .lp-footer__icon{
   display: flex;
