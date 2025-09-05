@@ -119,20 +119,27 @@ footer {
   background-color: #00A4E9;
 }
 
+
+.lp-footer__icon{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .lp-footer__icon--youtube{
   width:64px;
 }
 
 .lp-footer__icon--instagram{
-  width:44px;
+  width:68px;
 }
 
 .lp-footer__icon--x{
-  width:39px;
+  width:27px;
 }
 
 .lp-footer__logo--company-logo{
-width:187px;
+  width:187px;
 }
 
 
